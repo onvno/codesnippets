@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		// From MDN:
+		// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw
+		function UserException(message) {
+		   this.message = message;
+		   this.name = "UserException";
+		}
+		function getMonthName(mo) {
+		   mo = mo-1; // Adjust month number for array index (1=Jan, 12=Dec)
+		   var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
+		      "Aug", "Sep", "Oct", "Nov", "Dec"];
+		   if (months[mo] !== undefined) {
+		      return months[mo];
+		   } else {
+		      throw new UserException("InvalidMonthNo");
+		   }
+		}
+		function logMyErrors(message,name){
+			console.log(message + ': ' + name + ';\n')
+		}
+
+		try {
+		   // statements to try
+		   var myMonth = 15; // 15 is out of bound to raise the exception
+		   monthName = getMonthName(myMonth);
+		} catch (e) {
+		   monthName = "unknown";
+		   logMyErrors(e.message, e.name); // pass exception object to err handler
+		}
+
+
+
+	</script>
+
+</body>
+</html>

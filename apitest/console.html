@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		/**
+		 * console.group
+		 */
+		var user = "jsmith", authenticated = false;
+		console.group("Authentication phase");
+		console.log("Authenticating user '%s'", user);
+		// authentication code here...
+		if (!authenticated) {
+		    console.log("User '%s' not authenticated.", user)
+		}
+		console.groupEnd();
+
+		/**
+		 * console.group 多层级
+		 */
+		var user = "jsmith", authenticated = true, authorized = true;
+		// Top-level group
+		console.group("Authenticating user '%s'", user);
+		if (authenticated) {
+		    console.log("User '%s' was authenticated", user);
+		    // Start nested group
+		    console.group("Authorizing user '%s'", user);
+		    if (authorized) {
+		        console.log("User '%s' was authorized.", user);
+		    }
+		    // End nested group
+		    console.groupEnd();
+		}
+		// End top-level group
+		console.groupEnd();
+		console.log("A group-less log trace.");
+
+		console.group('group start'); //group开始
+		console.log('group content 1'); // group 内容1
+		console.groupEnd(); //group结束
+
+
+		function foo() {
+		  function bar() {
+		    console.trace();
+		  }
+		  bar();
+		}
+
+		foo();
+
+
+	</script>
+
+</body>
+</html>
