@@ -1,0 +1,1 @@
+window.onload=function(){var o=function(){console.log("test")};o();var n=function(){console.log("newtest")};n()};
