@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		/**
+		 * 数据绑定实现：
+		 * nameValue值更改，user.name更改
+		 * user.name值更改，nameValue更改
+		 * 参考http://www.sellarafaeli.com/blog/native_javascript_data_binding
+		 */
+		var user = {};
+		var nameValue = 'Joe';
+		Object.defineProperty(user, 'name', {
+			get: function() {
+				return nameValue;
+			},
+			set: function(newValue) {
+				nameValue = newValue;
+			},
+			configurable: true
+		});
+		debugger;
+		console.log(user);
+		user.name = 'Bob';
+		console.log(nameValue);
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<input type="" name="" id="foo">
+
+	<script type="text/javascript">
+		/**
+		 * 以下均来自http://www.sellarafaeli.com/blog/native_javascript_data_binding
+		 */
+
+		/**
+		 * defineProperty实现绑定方法初稿
+		 */
+		// user = {};
+		// Object.defineProperty(user, 'name', {
+		// 	get: function() {
+		// 		return document.getElementById('foo').value;
+		// 	},
+		// 	set: function(newValue) {
+		// 		document.getElementById('foo').value = newValue;
+		// 	},
+		// 	configurable: true
+		// });
+		// console.log(user);
+
+
+		/**
+		 * defineProperty通用方法
+		 */
+		var user = {};
+		var inputElem = document.getElementById('foo');
+		bindModelInput(user, 'name', inputElem);
+
+		function bindModelInput(obj, property, domElem) {
+			Object.defineProperty(obj, property, {
+				get: function() {
+					return domElem.value;
+				},
+				set: function(newValue) {
+					domElem.value = newValue;
+				},
+				configurable: true
+			});
+		}
+		console.log(user);
+
+		
+	</script>
+
+</body>
+</html>

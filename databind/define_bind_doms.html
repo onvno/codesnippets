@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<input type="" name="" id="input1">
+	<input type="" name="" id="input2">
+
+	<script type="text/javascript">
+		/**
+		 * 实现多dom元素同步更新
+		 * @type {[type]}
+		 */
+		var input1 = document.getElementById('input1');
+		var input2 = document.getElementById('input2');
+
+		var user = {};
+
+		Object.defineProperty(user, 'name', {
+			get: function() {
+				return input1.value;
+			},
+			set: function(newValue) {
+				input1.value = newValue;
+				input2.value = newValue;
+			},
+			configurable: true
+		});
+
+		//sync both inputs.
+		input1.addEventListener('change', function(){
+			user.name = user.name;
+		});
+
+		console.log(user);
+	</script>
+
+</body>
+</html>
