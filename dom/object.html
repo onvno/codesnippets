@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		window.onload = function() {
+			var a = {
+				"ab":123,
+				"bc":234
+			};
+			var b = [{
+				"cc":234,
+				"ab":123
+			},{
+				"ab":123,
+				"bc":234
+			}];
+
+			var objCompare = function(rootObj, objAry) {
+				var aryLen = objAry.length;
+				var rootStr = JSON.stringify(rootObj);
+				var matchNum = 0;
+				for(var i=0; i<aryLen; i++){
+					var compareStr = JSON.stringify(objAry[i]);
+					matchNum += (rootStr == compareStr) ? 1 : 0;
+				}
+				return (matchNum>0) ? true : false; 
+			};
+			var re = objCompare(a,b);
+			console.log(re);
+		};
+	</script>
+
+
+</body>
+</html>
