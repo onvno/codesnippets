@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React</title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <div id="content"></div>
+    <div id="exa"></div>
+    <div id="ax"></div>
+    <div id="fac"></div>
+    <script type="text/babel">
+
+    var HelloWorld = React.createClass({
+      render: function() {
+        return (
+          <p>
+            
+            Hello, <input type="text" placeholder="Your name here" />!
+            It is {this.props.date.toTimeString()}
+          </p>
+        );
+      }
+    });
+
+    setInterval(function() {
+      ReactDOM.render(
+        <HelloWorld date={new Date()} />,
+        document.getElementById('example')
+      );
+    }, 500);
+
+    // jsx渲染 tag
+    var myDivElement = <div className="exaa" />;
+    ReactDOM.render(myDivElement, document.getElementById('exa'));
+
+    // 
+    var child1 = React.createElement('li', null, 'First Text Content');
+    var child2 = React.createElement('li', null, 'Second Text Content');
+    var child3 = React.createElement('li', null, 'Third Text Content');
+    var root = React.createElement('ul', { className: 'my-list' }, child1, child2, child3);
+    ReactDOM.render(
+      root,
+      document.getElementById('ax')
+    )
+
+    // facs
+var roots = React.DOM.ul(
+    {className:'my-list'},
+    React.DOM.li(null,'First Text Content2'),
+    React.DOM.li(null,'Second Text Content2')
+);
+ReactDOM.render(
+  roots,
+  document.getElementById('fac')
+)
+
+var factory = React.createFactory("li");
+var chi1 = factory(null,'First Text Content');
+var chi2 = factory(null,'Second Text Content');
+var rootss  = React.createElement('ul',{className:'my-list'},chi1,chi2);
+ReactDOM.render(
+        rootss,
+        document.getElementById('content')
+);
+
+    </script>
+  </body>
+</html>
