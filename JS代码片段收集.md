@@ -33,3 +33,13 @@ Object.size = function(obj) {
 var size = Object.size(myArray);
 ```
 
+### 删除数组一个元素
+
+[js删除数组里的某个元素](http://caibaojian.com/js-splice-element.html)
+
+```
+arr.splice(1,1)   //['a','c','d'] 删除起始下标为1，长度为1的一个值，len设置的1，如果为0，则数组不变
+
+arr.splice(1,2)  //['a','d'] 删除起始下标为1，长度为2的一个值，len设置的2
+```
+
